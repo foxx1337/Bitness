@@ -1,0 +1,22 @@
+﻿<Window x:Class="Bitness.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bitness"
+        xmlns:res="clr-namespace:Bitness.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static res:Resources.HelpTitle}" Height="170.813" Width="376.077" ResizeMode="NoResize"
+        >
+    <StackPanel Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <WrapPanel Margin="0" HorizontalAlignment="Center">
+            <TextBlock FontSize="16" FontWeight="Bold" Text="Usage:   " Margin="0,0,0,5" />
+            <TextBlock FontSize="16" Text="Bitness " FontFamily="Consolas" Margin="0,3,0,0" />
+            <TextBlock FontSize="16" FontStyle="Italic" Text="path\to\program" FontFamily="Consolas" Margin="0,3,0,0" />
+        </WrapPanel>
+        <TextBlock FontSize="16" Margin="0,16,0,0" Text="Displays various PE info about the program." />
+        <Button HorizontalAlignment="Center" Margin="0,10,0,0" Click="Button_Click" >
+            <TextBlock Text="Close" FontSize="16" Margin="5,2" />
+        </Button>
+    </StackPanel>
+</Window>
