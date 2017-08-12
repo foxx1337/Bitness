@@ -13,7 +13,7 @@
                      Text="{Binding ElementName=wndMain, Path=File.FileLocation, Mode=OneWay}"
                      Width="327" 
                      />
-            <Button Name="CopyPath" Margin="10,0,0,0" Click="ButtonCopyPath_Click">
+            <Button Name="btnCopyPath" Margin="10,0,0,0" Click="ButtonCopyPath_Click">
                 <TextBlock Margin="5,0" Text="Copy" />
             </Button>
         </WrapPanel>
@@ -34,7 +34,7 @@
             <TextBlock Text="{Binding ElementName=wndMain, Path=File.Is64Bit}" />
         </WrapPanel>
 
-        <Button Name="OpenExplorer" Margin="0, 10" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="ButtonOpenExplorer_Click">
+        <Button Name="btnOpenExplorer" Margin="0, 10" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="ButtonOpenExplorer_Click">
             <TextBlock Margin="5,5" Text="Open Explorer" />
         </Button>
     </StackPanel>

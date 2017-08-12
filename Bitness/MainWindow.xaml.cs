@@ -46,7 +46,7 @@ namespace Bitness
 
         private void ButtonCopyPath_Click(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetText(File.FileLocation);
+            CopyPath();
         }
 
         private void wndMain_KeyUp(object sender, KeyEventArgs e)
@@ -54,11 +54,11 @@ namespace Bitness
             switch (e.Key)
             {
                 case Key.C:
-                    ButtonCopyPath_Click(sender, null);
+                    CopyPath();
                     break;
                 case Key.E:
                 case Key.X:
-                    ButtonOpenExplorer_Click(sender, null);
+                    OpenExplorer();
                     break;
                 case Key.Escape:
                     Close();
@@ -67,6 +67,16 @@ namespace Bitness
         }
 
         private void ButtonOpenExplorer_Click(object sender, RoutedEventArgs e)
+        {
+            OpenExplorer();
+        }
+
+        private void CopyPath()
+        {
+            Clipboard.SetText(File.FileLocation);
+        }
+
+        private void  OpenExplorer()
         {
             Process.Start("explorer", "/select,\"" + File.FileLocation + "\"");
         }
