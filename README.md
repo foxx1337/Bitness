@@ -14,7 +14,7 @@ In order to add this to the right-click menu, the following `.reg` are required
    @="Bitness"
 
    [HKEY_CLASSES_ROOT\dllfile\shell\bitness\command]
-   @="d:\\src\\Bitness\\Bitness\\bin\\Debug\\Bitness.exe %1"
+   @="d:\\src\\Bitness\\Bitness\\bin\\Debug\\Bitness.exe \"%1\""
    ```
 
 2. for `exe`:
@@ -26,5 +26,5 @@ In order to add this to the right-click menu, the following `.reg` are required
    @="Bitness"
 
    [HKEY_CLASSES_ROOT\exefile\shell\bitness\command]
-   @="d:\\src\\Bitness\\Bitness\\bin\\Debug\\Bitness.exe %1"
+   @="d:\\src\\Bitness\\Bitness\\bin\\Debug\\Bitness.exe \"%1"\"
    ```
