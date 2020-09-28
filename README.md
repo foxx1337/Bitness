@@ -28,3 +28,8 @@ In order to add this to the right-click menu, the following `.reg` are required
    [HKEY_CLASSES_ROOT\exefile\shell\bitness\command]
    @="d:\\src\\Bitness\\Bitness\\bin\\Debug\\Bitness.exe \"%1"\"
    ```
+
+## TODO
+
+- Add pwsh script to automate registry setup.
+- Add installer.
