@@ -5,37 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bitness"
         mc:Ignorable="d"
-        Title="FileBitness" Height="210.188" Width="420.844"
-        Name="wndMain" KeyUp="wndMain_KeyUp">
-    <StackPanel Margin="10">
-        <WrapPanel>
-            <TextBox IsReadOnly="True"
-                     Text="{Binding ElementName=wndMain, Path=File.FileLocation, Mode=OneWay}"
-                     Width="327" 
-                     />
-            <Button Name="btnCopyPath" Margin="10,0,0,0" Click="ButtonCopyPath_Click">
-                <TextBlock Margin="5,0" Text="Copy" />
-            </Button>
-        </WrapPanel>
-        <WrapPanel Margin="0,10,0,0">
-            <TextBlock Text="IsEXE: " FontWeight="Bold" />
-            <TextBlock Text="{Binding ElementName=wndMain, Path=File.IsEXE}" />
-        </WrapPanel>
-        <WrapPanel>
-            <TextBlock Text="IsDLL: " FontWeight="Bold" />
-            <TextBlock Text="{Binding ElementName=wndMain, Path=File.IsDLL}" />
-        </WrapPanel>
-        <WrapPanel Margin="0,10,0,0">
-            <TextBlock Text="Is32Bit: " FontWeight="Bold" />
-            <TextBlock Text="{Binding ElementName=wndMain, Path=File.Is32Bit}" />
-        </WrapPanel>
-        <WrapPanel>
-            <TextBlock Text="Is64Bit: " FontWeight="Bold" />
-            <TextBlock Text="{Binding ElementName=wndMain, Path=File.Is64Bit}" />
-        </WrapPanel>
+        Title="Bitness"
+        Height="224"
+        MinHeight="224"
+        Width="420"
+        MinWidth="420"
+        Name="WndMain" KeyUp="WndMain_KeyUp"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <Button Name="btnOpenExplorer" Margin="0, 10" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="ButtonOpenExplorer_Click">
-            <TextBlock Margin="5,5" Text="Open Explorer" />
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0"
+                     IsReadOnly="True"
+                     Text="{Binding Path=File.FileLocation, Mode=OneWay}" />
+            <Button Grid.Column="1"
+                    Name="BtnCopyPath"
+                    Margin="10,0,0,0"
+                    Click="ButtonCopyPath_Click">
+                <TextBlock Margin="5,0">
+                    <Underline>C</Underline>opy
+                </TextBlock>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Height="100"
+                   Source="{Binding Path=IconPath}" />
+            <TextBlock Grid.Column="1"
+                       Margin="10, 20"
+                       FontWeight="Bold"
+                       Text="{Binding Path=FileInfo}" />
+        </Grid>
+
+        <Button Grid.Row="2"
+                Name="BtnOpenExplorer"
+                Margin="0, 10"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="ButtonOpenExplorer_Click">
+            <TextBlock Margin="5,5">
+                Open <Underline>Ex</Underline>plorer
+            </TextBlock>
         </Button>
-    </StackPanel>
+    </Grid>
 </Window>

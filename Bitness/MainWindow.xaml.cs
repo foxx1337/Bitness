@@ -1,19 +1,7 @@
 ﻿using PeNet;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Bitness
 {
@@ -22,11 +10,59 @@ namespace Bitness
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Foo TheFoo { get; set; } = new Foo();
-
-        public string TheBar { get; set; } = "this is bar";
-
         public PeFile File { get; set; }
+
+        public string FileInfo
+        {
+            get
+            {
+                string ret = "";
+
+                if (File.Is32Bit)
+                {
+                    ret += "32-bit / Win32 / x86\n";
+                }
+                else if (File.Is64Bit)
+                {
+                    ret += "64-bit / x64\n";
+                }
+
+                if (File.IsSigned)
+                {
+                    ret += "Signed ";
+                }
+
+                if (File.IsDLL)
+                {
+                    ret += "Library";
+                }
+                else if (File.IsEXE)
+                {
+                    ret += "Executable";
+                }
+
+                return ret;
+            }
+        }
+
+        public string IconPath
+        {
+            get
+            {
+                if (File.IsDLL)
+                {
+                    return @"pack://application:,,,/Bitness;component/Images/dll.png";
+                }
+                else if (File.IsEXE)
+                {
+                    return @"pack://application:,,,/Bitness;component/Images/exe.png";
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
 
         public MainWindow()
         {
@@ -39,17 +75,12 @@ namespace Bitness
             InitializeComponent();
         }
 
-        public class Foo
-        {
-            public string Age { get; set; } = "15";
-        }
-
         private void ButtonCopyPath_Click(object sender, RoutedEventArgs e)
         {
             CopyPath();
         }
 
-        private void wndMain_KeyUp(object sender, KeyEventArgs e)
+        private void WndMain_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
@@ -76,7 +107,7 @@ namespace Bitness
             Clipboard.SetText(File.FileLocation);
         }
 
-        private void  OpenExplorer()
+        private void OpenExplorer()
         {
             Process.Start("explorer", "/select,\"" + File.FileLocation + "\"");
         }
