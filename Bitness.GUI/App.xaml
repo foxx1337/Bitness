@@ -1,8 +1,7 @@
-﻿<Application x:Class="Bitness.App"
+﻿<Application x:Class="Bitness.GUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Bitness"
-             Startup="Application_Startup">
+             xmlns:local="clr-namespace:Bitness.GUI">
     <Application.Resources>
          
     </Application.Resources>
