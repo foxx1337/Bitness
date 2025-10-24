@@ -41,6 +41,35 @@ For release builds:
 dotnet build -c Release
 ```
 
+### Registry setup
+
+In order to add this to the right-click menu, the following `.reg` are required
+(do not forget to edit the path):
+
+1. for `dll`:
+
+   ```reg
+   Windows Registry Editor Version 5.00
+
+   [HKEY_CLASSES_ROOT\dllfile\shell\bitness]
+   @="Bitness"
+
+   [HKEY_CLASSES_ROOT\dllfile\shell\bitness\command]
+   @="d:\\src\\Bitness\\Bitness.GUI\\bin\\Release\\net9.0-windows\\Bitness.exe \"%1\""
+   ```
+
+2. for `exe`:
+
+   ```reg
+   Windows Registry Editor Version 5.00
+
+   [HKEY_CLASSES_ROOT\exefile\shell\bitness]
+   @="Bitness"
+
+   [HKEY_CLASSES_ROOT\exefile\shell\bitness\command]
+   @="d:\\src\\Bitness\\Bitness.GUI\\bin\\Release\\net9.0-windows\\Bitness.exe \"%1\""
+   ```
+
 ## Usage
 
 ### Command Line Interface
@@ -134,11 +163,3 @@ Bitness/
 │   └── MainWindow.xaml.cs   # Window logic with drag-drop support
 └── README.md                # This file
 ```
-
-## License
-
-[Add your license information here]
-
-## Contributing
-
-[Add contribution guidelines here]
